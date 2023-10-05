@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import { Home } from "./Home";
 
 const initialBooks = [
   { id: 1, title: "Title 1", description: "description 1" }, // 0
@@ -13,12 +14,11 @@ const App = () => {
   const [books, setBooks] = useState(initialBooks);
 
   const addBook = (book) => {
-    console.log(book);
     setBooks((prevState) => [...prevState, book]);
   };
 
   return (
-    <>
+    <Home books={books} addBook={addBook}>
       <div className="parent">
         {books.map((book) => {
           return (
@@ -29,19 +29,7 @@ const App = () => {
           );
         })}
       </div>
-      <button
-        className="btn"
-        onClick={() =>
-          addBook({
-            id: books.length + 1,
-            title: `Title ${books[books.length - 1].id + 1}`,
-            description: `description ${books[books.length - 1].id + 1}`,
-          })
-        }
-      >
-        Add
-      </button>
-    </>
+    </Home>
   );
 };
 
