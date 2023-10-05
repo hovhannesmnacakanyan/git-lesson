@@ -11,6 +11,7 @@ const initialBooks = [
 
 const App = () => {
   const [books, setBooks] = useState(initialBooks);
+
   const addBook = (book) => {
     console.log(book);
     setBooks((prevState) => [...prevState, book]);
